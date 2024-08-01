@@ -11,6 +11,19 @@ const metadata = {
   title: config.site.home_Title,
   ignoreTitleTemplate: true,
 };
+
+
+
+import { desc } from "drizzle-orm";
+import { drizzle } from "drizzle-orm/d1";
+import { linkShare } from "../schema";
+
+const db = drizzle(Astro.locals.runtime.env.DB);
+
+const links = await db
+	.select()
+	.from(linkShare)
+	.orderBy(desc(linkShare.created));
 ---
 
 <Layout metadata={metadata}>
@@ -46,6 +59,18 @@ const metadata = {
             <p>{faq.a}</p>
         </div>
     ))}
+  </div>
+  <div>
+  <h1>Shared Links</h1>
+		<ul>
+			{
+				links.map((link) => (
+					<li>
+						<a href={link.url}>{link.title}</a>
+					</li>
+				))
+			}
+		</ul>
   </div>
 </Layout>
 

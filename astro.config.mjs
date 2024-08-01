@@ -61,5 +61,8 @@ export default defineConfig({
     routes: {
       strategy: 'include',
     },
+    platformProxy: {
+      enabled: true,
+    }
   }),
 });

@@ -21,4 +21,5 @@ pnpm-debug.log*
 
 pnpm-lock.yaml
 
-.astro
+.astro.wrangler
+.drizzle.env
