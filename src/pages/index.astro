@@ -58,17 +58,6 @@ const links = await db
         </div>
     ))}
   </div>
-  <div>
-  <h1>Shared Links</h1>
-		<ul>
-			{
-				links.map((link) => (
-					<li>
-						<a href={link.url}>{link.title}</a>
-					</li>
-				))
-			}
-		</ul>
-  </div>
+  
 </Layout>
 
